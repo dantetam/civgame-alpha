@@ -1,0 +1,383 @@
+- : English description
+* : Implementation detail
+> : Completed
+/ : In progress
+X : Abandoned
++ : Addition (not planned)
+... : Delayed
+
+2/21/2015 -> 2/27/2015
+
+Distributed networking
+	Transition to decentralized/centralized network
+	Players must keep their civilization nodes together or face penalties
+	> Discourage founding cities far away and tight defenses
+	Fields and improvements act as minor nodes
+		Addition of hamlets as minor nodes (which require maintenance?)
+AI changes
+	AI should optimize fields
+	AI prioritizes war when army is strong
+Dynamic culture shifting
+	If a tile is surrounded by many others, shift culture gradually
+	Allow players to buy tiles
+Sieges like in RTW and Endless Legend
+		
+2/14/2015 -> 2/20/2015 (More hackathon work)
+
+A new UI that emphasizes icons and only shows text in tooltips
+Menu dialogs and ledgers that sort
+Put action/status bar in a permanent location
+	Remove for now
+
+Scaling resources to empire size and turns
+/ New streamlined UI that reflects Endless Legend
+	>+ Icons in queue menu
+	>+ Changes to yield GUI
+Grand view perspective, strategic mid-view, detailed view
+	Variable positions of mouse clicking (define how to click a tile based on a rendering)
+Work on and balance unit upgrades (some disadvantages and costs)
+> Tech tree visualization
+	Variable tech trees? (group by strategy i.e. militaristic techs unlock others of the same type)
+Dynamic city model
+	3d models when queuing
+Levels when building cities, fields, units
+	Improvements and cities (like Boroughs in Endless Legend)
+	Techs 
+> Add more game icons
+	> Change FGMR gui
+	> Unit improvement icons
+	Get building, other unit improvement icons
+	> Combat GUI
+>+ Fixed row column order in GUI
+>+ New minimap
+>+ Yield GUI with reasons
+
+> Use of hashmaps to explain how yields are calculated (e.g. in index "+1 from coal" put "+1 production"
+Constitution stat (i.e. morale) for units
+Strategy conduciveness (e.g. more horsemen if majority of tiles are steppe)
+	Encourage player to take strategy through quest (but not all the time)
+Increase resources (e.g. allow player to breed animals by not harvesting them, a gamble)
+	Allow players to spend resources on a dig which may provide coal for a limited time
+	Discourage resource rushing
+	Do not use randomness or other arbitrary factors
+Lower the number of tile evaluations by saving them every turn
+	
+2/7/2015 -> 2/13/2015 (Hackathon work)
+
+The idea that every single island is a world, and civilizations can establish colonies in other worlds
+Colonization as a possible mid-to-late-game mechanic
+	- Colonies require upkeep to survive
+	- Cost increases exponentially with number of colonies (EU4, Civ: BE)
+	Inland vs overseas colony
+		Settler acts as settler on connected territory, colonizer on far away territory
+	
+/ Implement fields
+	Allow AI to optimize fields
+	> Allow player to buy and improve fields through menu
+	> Calculate effects of fields on tile production
+	Allow player to increase centralization of fields with centralization tech
+Implement trade routes/caravans
+	Allow caravans to be unlocked by tech
+	Factor caravans into tile production
+> Allow workers to build roads, which connect cities	
+	> Give bonus to movement, trade route effectiveness
+/ Better UI/graphics
+	Gradient buttons with consistent theme
+	/ Textured graphics (either randomly generated in program or TerraGen)
+	/ Ability to view a tile's fields through tactical menu
+		>+ Field menu allows one to edit fields
+	> Ability to see how improvements easy yield
+	> Tooltips for building queue menu
+	>+ Tooltips for researching tech
+	Encyclopedia entries
+	Advanced tutorial on economics, war, etc.
+	> Fix tile yield GUI so that it does not overlap
+	/ Rough and smooth textures for terrain
+	>+ City growth and production GUI
+	>+ Addition of tutorial menu (multiple tutorials)
+/ Bug fixes
+	> Cancel movement order if next tile is within enemy territory
+	Check if units are in enemy territory and push them out
+	>+ Fixed worker causing infinite loop
+	
+/ Game balancing (to be done 2/9/2015)
+	>+ Factor in gold
+	>+ Reduce population growth by making it an exponential function
+
+1/19/2015 -> 1/24/2015
+
+> Streamlined UI
+	> Use royalty free icons from favorited website
+	X Rearrange buttons for menus to be in a row on the bottom
+Graphics/UX
+	Add textures to terrain
+		Possible use of TerraGen
+	Smooth terrain (no implementation details yet)
+		http://www.chadvernon.com/blog/resources/directx9/terrain-generation-with-a-heightmap/
+		http://www.gamedev.net/page/resources/_/technical/game-programming/box-filtering-height-maps-for-smooth-rolling-hills-r2164
+Balancing
+
+Fields
+	/ Implement multiple fields per tile
+		Allow player to buy fields with gold or culture
+		Allow AI to optimize fields of a tile
+	> Implement owners of tiles
+		> Randomly generate an owner for a field
+			Tributary fields -> provide resources for any civ that owns the tile, can be converted into civ field (less autonomy)
+			X Unowned fields -> provide larger amount of resources when improvement is built
+			Barbarian fields -> openly hostile fields, equivalent to savage field but can spawn a barbarian revolt
+			Savage fields -> must be converted to tributary fields by force or culture
+			Civilization fields -> directly owned by a civilization (converted from unowned)
+	Fields can improve a tile's yield
+	/ Field autonomy
+		Percentage which determines amount of resources given
+		A field is left autonomous -> may turn into city state (cannot be captured)
+	Fields can be captured by warring civs
+City-states
+	Addition of non-capturable city states
+		Revert to tributary field on tile when captured
+	
+(Planned 12/1/2014 -> 12/12/2014) 
+
+/+ Game mechanic balancing
+	AI should improve units when available to discourage spamming weaker units
+		Melee units have weapon improvement that gives advantage over enemy unit lacking it
+	AI should explore more and pathfind to enemies directly (omnisciently) on harder difficulty
+	Increase costs of all "late-game" units such as swordsman
+	/ Integrate other tile improvements into game such as windmill, mine, etc
+	Focus on tile improvements early-game and let AI research techs that exploit resources
+	>+ Food and metal production per-city only
+	Limit number of units spawned by AI and barbarians
+	> Add health system to city that ranged strength relies on; capture at 0 health
++ Graphics changes
+	/ Add more detail to terrain (possible use of textures)
+	> Tile yields shown in 2D GUI
+	>+ Streamlined UI
+		>+ Flashing button (use stroke) instead of changing button width
+		/+ Rearrange elements to specifications in notebook
+		>+ Tooltip of a unit's name that is highlighted by mouse (e.g. Athenian worker, Cretan warrior, etc.)
+		>+ Pauses between automatic selection (of units) which can be set in menu
+		+ Gradient colors for UI buttons
+	/+ City GUI for queued food, metal, and health + estimated turns to production
+	>+ Status bar (tell player what needs to be queued)
+>+ Fixed sea land border glitch
+>+ Fixed glitch in 2D tile gui
+>+ Balanced forests, small changes
+
++ Savages that prevent working of certain tiles (have no presence on map)
+	+ Can turn into barbarians
++ City names for each civilization
+
+V 1.0!
+
+(Planned 11/24/2014 -> 12/1/2014) MASTER LIST DUE 12/1/2014
+Major additions:
+/ AI improvements
+	> Civilizations research techs that prioritize their long-term strengths and strategy
+	> Civilizations build appropriate units of the time that counter enemy units
+	/ AI implements grand strategy in pursuit of a larger goal
+> AI additions
+	> AI civilizations have different "flavors" i.e. tendencies
+		> Factor in war and peace values when civs consider peacing out
+	> Civilization have unique bonuses and units
+		> Tooltips for traits listed in menu
+> Addition of civics from researching techs
+	> Civilizations with different civics have better relations
+	>+ Civic menu for player
+Player can take sides on certain events which affect government spectrum
+>2:12 Step by step tutorial that prompts for keys and conditions which simulates a real game 
+	
+Minor additions:
+> Cities have morale values dependent on number of enemies around
+	> Leving troops lowers morale
+	> Morale affects city ranged strength, health, production speed
+/ Cities get bonus vs ranged attack
+	+ Change cities to health system, capture city at 0 health
+> Civilization-wide health levels dependent on population
+>+ "Spiral" menu like the one found in Sniper Elite with choices that can be "dragged" to other tiles to complete actions
+	+ Add images to the buttons
+Ability to drag unit improvements onto units
+/3:55 Addition of trade routes between cities
+	> Cities get bonuses to production and growth when a trade route is set up
+	> Caravan units set up routes if there is a legal path
+	Trade routes grow over time when not interrupted
+	Trade range depends on city size
+> Certain technologies can obsolete units
+> Addition of difficulty level
+	>2:50 Combat bonuses to player on easier levels and to AI on harder levels
+	>+ Health and production bonuses varying with difficulty
+	>3:00 Varying war and peace values dependent on difficulty
+>2:16 World scales smaller with less people (world is too large as of 11/25/2014)
+Menu with constant color theme, possibly white and blue
+	
+Changes:
+> Technology research rate depends 50% on research and 50% on gold production
+Civs with more cities need more research for tech
+> Change revealing mechanism to 0,1,2 system
+>+ Changed menu game animations
+
+Fixes:
+>+ Fixed unit access bug
+
+--------------------------------------------------------------------------------------------------------
+
+(Planned 11/10/2014 -> 11/21/2014) on hiatus due to college applications
+Major additions:
+> Improve tech tree content
+/ Link tech tree completions to units, city improvements, tile improvements, and improvements
+/+ Improve user experience
+	>+ "Spiral" menu like the one found in Sniper Elite with choices that can be "dragged" to other tiles to complete actions
+	+ Set style of menu (possible white and medium blue theme?)
+	+ Fix rendering and keep consistent stroke styles, fills, strokeweights, etc.
+	+ Allow players to "drag" improvements over units
+	/+ Allow player to "drag" advisors (in the forms of squares)
+		/+ Diplomat square, trader square, spy square
+	+ Replace words with symbols (food with green circle, metal with orange square, research with blue triangle, gold with yellow circle)
+	+ Ability to drag units quickly to get them to move or attack (LMB drag, RMB drag)
+	-+ All squares oscillate in size when held
+	
+Minor additions:
+>+ Addition of ranged units and ranged strength
+>+ Units display health bar when damaged
++ Damage indicator GUI (2D)
++ Allow player to "meet" civilizations
+	+ Player must either declare war or declare truce period when meeting new civs
+	+ List of "revealed" civilizations show their tiles even when in darkness
+		* Change revealed array from boolean to numbers 0 -> hidden, 1 -> discovered, 2 -> in sight
++ Remove old buttons
++ Barbarian unification events
+	
+Changes:
+
+Fixes:
+>+ Quick fix to omniscience bug fix
+	>+ Exploration quick fix
+
+(Planned 11/8/2014 -> 11/9/2014 with 10/26/2014 -> 11/7/2014)
+
+Major additions:
+/ Balance game
+	> Fix civs being omnipotent i.e. being able to find the player without a challenge
+	> Fix barbarians spawning and attacking too aggressively
+		> Barbarians have no memory of what they reveal
+	- Fix civilizations getting early game warriors too early
+		> New unit, archer, bonus defending cities and bonus versus warriors
+	- Fix food distribution (return to city by city basis)
+	> Fix metal distribution i.e. do not store metal
+	- Store extra food when too much food (limited), and take extra food when starving
+	> Cities can raise temporary garrisons if enemy units on land
+Improve graphics
+	/ Custom (certain) or generated textures for land and sea tiles
+	- Decrease graphics lag on slower computers
+		* On unit selection
+	- Better unit models
+	- Unit animations when moving
+	>- Show units on menu simulation
+	> Health bar display
+Resource mechanics improvement
+	- Each resource harvested in a tile has a certain flow of resource
+	- The resource can be "spent" on units to build
+	- Small but constant maintenance for certain resources e.g. iron
+/ Increase "playability"
+	...+ Tutorial walkthrough
+	
+Minor additions:
+> Changes to diplomacy menu
+	>- Declare war
+	>- Declare peace
+	>- Alliances
+		>- Allies called to war automatically
+	>- Request open borders
+- Trade gold, culture, research
+>+ Relations menu
+	>+ Improved so that it can be used to view each's civilization's status
+>+ Players move in their respective turns
+>+ Tiles can defect to other civilizations based on culture
++ Barbarian unification events
+	>- Requires separate barbarian tribes
+	
+Changes:
+/ New GUI library
+	>* Fix bad inheritances
+	- Allow for non-square elements such as circle bars
+	>* Convert menus
+> Player must declare war on a civ to enter its territory
+>+ Encapsulate declaring war and alliances to let civs handle the logic
+>+ Better settler spawns
+
+Fixes:
+> Fix barbarians spawning in revealed tiles
+>+ Fixed "phantom" tooltips
+
+(Planned 10/26/2014 -> 11/7/2014)
+
+Major additions:
+>+ Select civilizations 
+	/+ with certain names, attributes, bonuses, and units
+>+ Functioning combat system based off of health and relative strengths and possibly dice rolls (Civ5/EU4 hybrid)
+	>- Defense bonus on hills, mountain, forest, city, and offensive bonus on plains
+	>- Health based (not Civ4 style)
+> Fluid menu style with animations and tweens
+...+ Graphical UIs + colorful menus + set color scheme/style
+>+ Win and loss conditions corresponding to gamemode (w/ sandbox mode)
+... Content
+	... Techs
+	... Units
+	... City and Tile improvements
+>+ Barbarians (can be civilized)
+	>- Is always at war with all other civs and city states
+...+ Step by step tutorial
++ Sea units, embarking
+...>+ Diplomacy menu
+>+ In game encyclopedia
+.../+ Governments forms on a spectrum (automony, indirect deomcracy, ..., dictatorship)
+.../+ Government civics unlocked by techs
+
+Minor additions:
+> Ledger/comparative menu to compare stats of all civs (EU4/Civ)
+>+ Barbarian units and cities spawn in tiles not revealed
+>+ Menu has simulations of actual games
+
+Changes:
+> Ability to select any tile with the mouse
+> Tile border rendering changes
+
+Fixes:
+
+(Planned 10/19/2014 -> 10/26/2014)
+
+Major additions:
+> Ability to raze conquered land to reduce stress and monotony of late game seen in Civ4, particularly with large maps;
+	>+ Terrain degrades if a city owns it
+> Ability to craft certain tools and loadouts for units that cost a fixed price in resources (a Pandora feature);
+> Menu to set custom loadout for a unit that details the cost and benefit of that certain setup;
+> City improvements that add fixed bonuses that require techs (as seen in the Civ series);
+... Civilizations that have different personalities and bonuses (as seen in the Civ series);
+>+ Civilizations have relationships with each other
+... Fully functioning combat system
+> Implemented tech tree
+
+Minor additions:
+> Addition of city-states/one province minors, that can be spawned in the beginning or spawn as a nationalist/patriot movement
+	- City states that fragment of a civilization can defect to another friendly civ
+	- City states can be diplo-annexed (a EU feature)
+	* Possible extension of Civilization class?
+... Ability to save games
+	* Text file or serialization
+... Water transports and other units, ability to embark
+> Cities have specialized workers that take one extra population, do not harvest, and contribute a flat bonus (a Civ4 feature)
++ Random events (like in the EU series)
+/+ Spawned in treasure and rewards in the beginning of the map for civilizations to collect (like in AoE, Civ series, etc.)
+
+Changes:
+... Civilizations have distinct, certain names
+> Expanding cities by culture level instead of the default square
+
+Fixes:
+>/ Better rendering system
+	- only render the civ's color at the edge of their territory
+	* Use processing's line() function and call noStroke() on the generated vertices
+>+ Fixed cities in resistance not reverting to normal status 
+>+ Fixed player workers not letting game advance
+>+ Fixed highlighted city's queue/menu being accessed incorrectly
+>+ Stop buttons from deselecting objects
