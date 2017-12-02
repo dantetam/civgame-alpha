@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 
+import javax.naming.InsufficientResourcesException;
+
 import processing.core.*;
 import data.EntityData;
 import data.Field;
@@ -406,15 +408,17 @@ public class InputSystem extends BaseSystem {
 		else if (main.menuSystem.getSelected() == null)
 		{
 			TextBox b = main.menuSystem.menus.get(0).findButtonByCommand("markTile");
-			if (b.active)
-			{
-				//b.activate(false);
-			}
-			else
-			{
-				b.active = true;
-				b.posX = main.mouseX; b.posY = main.mouseY;
-				b.origX = main.mouseX; b.origY = main.mouseY;
+			if (b != null) {
+				if (b.active)
+				{
+					//b.activate(false);
+				}
+				else
+				{
+					b.active = true;
+					b.posX = main.mouseX; b.posY = main.mouseY;
+					b.origX = main.mouseX; b.origY = main.mouseY;
+				}
 			}
 		}
 		else

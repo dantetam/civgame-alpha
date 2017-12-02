@@ -116,8 +116,8 @@ public class MenuSystem extends BaseSystem {
 			//System.out.println(b.posX + " " + b.posY);
 		}
 
-		TextBox b = menu0.addButton("markTile", "MarkTile", "Mark this tile", main.width - 100, 70, 100, height);
-		b.lock = true; b.activate(false); b.autoClear = false;
+		//TextBox b = menu0.addButton("markTile", "MarkTile", "Mark this tile", main.width - 100, 70, 100, height);
+		//b.lock = true; b.activate(false); b.autoClear = false;
 
 		Menu menu1 = new Menu("UnitMenu");
 		menus.add(menu1);
@@ -213,6 +213,11 @@ public class MenuSystem extends BaseSystem {
 		textboxes.add(text8);
 
 		text4.activate(false);
+		
+		for (int i = 3; i <= 8; i++)
+		{
+			textboxes.get(i).active = false;
+		}
 
 		updateEncyclopedia();
 		
@@ -2704,7 +2709,7 @@ public class MenuSystem extends BaseSystem {
 	public void updateFieldMenu(Tile t)
 	{
 		if (t.maxFields == 0) return;
-		closeMenus();
+		//closeMenus();
 		menus.get(15).buttons.clear();
 		menus.get(15).activate(true);
 		//editingFields = t;
