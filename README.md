@@ -1,3 +1,12 @@
+## Civgame Archive
+
+** I developed this world-building strategy game based off of Civilization 4 and 5 during my spare class time in high school.
+It features a procedurally generated terrain which forms the basis of an empire-centric world. The world features a full 
+technology tree, AI opponents who fight and build up themselves, and the player's user interface.
+I was most proud of this because it revealed an intelligent, passionate work ethic within me. This still remains one of my largest projects,
+but not necessarily one of the most well-built. For a high school dev, this was ridiculously large and intricate, and rivaled the projects
+of actual working software developers. I keep this up as an archive and a bit of my CS development history. **
+
 A 4X civilization-style turn based strategy written in pure Java with Processing for rendering
 <s>14,000+ lines as of 12/15/2014</s>
 17,000+ lines as of 2/17/2015
